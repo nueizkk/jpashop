@@ -26,10 +26,10 @@ public class Order {
     @OneToMany(mappedBy = "order")
     private List<OrderItem> orderItems = new ArrayList<>();
     @OneToOne
-    @JoinColumn(name = "delivery_id")
+    @JoinColumn(name = "delivery_id") // FK 설정
     private Delivery delivery;
     private LocalDateTime orderDate;
     @Enumerated(EnumType.STRING)
-    private OrderStatus status; // order. cancle
+    private OrderStatus status;
     
 }
