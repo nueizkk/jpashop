@@ -12,13 +12,12 @@ public class OrderItem {
     @Id @GeneratedValue
     @Column(name = "order_item_id")
     private Long id;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne // 단방향이면 mappedBy 그냥 안쓰면 되는지?
     @JoinColumn(name = "item_id")
     private Item item;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name="order_id")
     private Order order;
-
     private int orderPrice;
     private int count;
 
