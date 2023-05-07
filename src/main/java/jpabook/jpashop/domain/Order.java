@@ -29,4 +29,17 @@ public class Order {
     @Enumerated(EnumType.STRING)
     private OrderStatus status; // [ORDER, CANCEL]
 
+    // 연관관계 편입 메서드 (양방향 연관관계일 때)
+    public void setMember(Member member) {
+        this.member = member;
+        member.getOrders().add(this);
+    }
+    public void addOrderItem(OrderItem orderItem) {
+        this.orderItems.add(orderItem);
+        orderItem.setOrder(this);
+    }
+    public void setDelivery(Delivery delivery){
+        this.delivery = delivery;
+        delivery.setOrder(this);
+    }
 }
