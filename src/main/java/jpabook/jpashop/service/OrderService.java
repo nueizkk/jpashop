@@ -22,7 +22,7 @@ public class OrderService {
     private final MemberRepository memberRepository;
     private final ItemRepository itemRepository;
 
-    /***
+    /**
      * 상품 주문
      */
     public Long order(Long memberId, int count, Long itemId) {
@@ -49,6 +49,10 @@ public class OrderService {
     public void cancelOrder(Long orderId) {
         Order order = orderRepository.findOne(orderId);
         order.cancel();
+    }
+
+    public Order findOne(Long orderId) {
+        return orderRepository.findOne(orderId);
     }
 
     /**
