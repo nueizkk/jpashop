@@ -6,11 +6,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-
 import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RestController
@@ -41,10 +39,7 @@ public class MemberApiController {
         memberService.update(id, request.getName());
         Member member = memberService.findOne(id).get();
         return new UpdateMemberResponse(member.getId(), member.getName());
-
     }
-
-
 
     @GetMapping("/api/v1/members")
     public List<Member> membersV1(Member member) {
